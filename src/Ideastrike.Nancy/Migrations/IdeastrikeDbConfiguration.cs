@@ -18,7 +18,7 @@ namespace Ideastrike.Nancy.Migrations
         {
             if (!context.Settings.Any())
             {
-                context.Settings.AddOrUpdate(s => s.Key, new Setting { Key = "Title", Value = "Yet Another Ideastrike" });
+                context.Settings.AddOrUpdate(s => s.Key, new Setting { Key = "Title", Value = "Harvesting Ideas with Ideastrike" });
                 context.Settings.AddOrUpdate(s => s.Key, new Setting { Key = "Name", Value = "Ideastrike" });
                 context.Settings.AddOrUpdate(s => s.Key, new Setting { Key = "WelcomeMessage", Value = "You've been.... Ideastruck" });
                 context.Settings.AddOrUpdate(s => s.Key, new Setting { Key = "HomePage", Value = "http://www.code52.org" });
