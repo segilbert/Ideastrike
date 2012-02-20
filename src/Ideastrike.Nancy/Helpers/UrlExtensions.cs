@@ -14,7 +14,11 @@ namespace Ideastrike.Nancy.Helpers
                 Host = httpContext.Request.Url.Host,
                 Path = "/",
                 Port = 80,
+#if ( DEBUG )
                 Scheme = "http",
+#else
+                Scheme = "https",
+#endif
             };
 
             // Always set for now as we want to include the port number
