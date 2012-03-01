@@ -8,10 +8,11 @@ deploy
 deploy/*
 *.suo
 *.cache
-packages/
-msbuild.log
-artifacts/log
-artifacts/
-post-build*
+*.docstates
 _ReSharper.*
-deploy-to-ec2*
+*.csproj.user
+*[Rr]e[Ss]harper.user
+_ReSharper.*/
+packages/*
+artifacts/*
+*.ogv
