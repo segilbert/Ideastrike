@@ -1,0 +1,25 @@
+﻿﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+@{
+    Layout = "Views/Shared/Layout.cshtml";
+}
+
+@section HeadContent
+{
+    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
+}
+
+<h3>Support and Suggestions</h3>
+<p>
+    @string.Format("{0} reach out to the IdeaStrike admin group via email ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a> 
+</p>
+
+<h3>Training</h3>
+<p>
+   @string.Format("{0} below are several FREE trainings provided by the IdeaStrike Innovation Team.", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", listed" : "Listed"))
+</p>
+
+<video id="my_video_1" class="video-js vjs-default-skin" width="640" height="264" poster="@Url.Content("~/Resources/ideastrike.jpg")"
+        data-setup='{"controls": true, "autoplay": false, "preload": "auto" }'">
+        <source src="@Url.Content("~/Resources/Video/IdeaStrike.101.theora.ogv")" type='video/ogg'>
+</video>
