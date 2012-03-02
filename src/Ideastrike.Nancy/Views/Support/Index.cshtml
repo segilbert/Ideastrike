@@ -7,18 +7,54 @@
 {
     <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
     <script src="http://vjs.zencdn.net/c/video.js"></script>
+    <style>
+        img.left {
+	        float:left;
+	        margin-right:1.5em;
+        }
+
+        img.right {
+	        float:right;
+	        margin-left:1.5em;
+        }
+
+        img.center {
+	        display:block;
+	        margin:0 auto 1.5em;
+        }
+
+        img.left, img.right {
+	        margin-bottom:.8em;
+        }
+        
+        ul.left 
+        {
+            margin-left:50px;
+        }
+    </style>
 }
 
-<h3>Support and Suggestions</h3>
-<p>
-    @string.Format("{0} reach out to the IdeaStrike admin group via email ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a> 
-</p>
+<img class="left" src="@Url.Content("~/Resources/support.jpg")" title="Support" alt="Support"><span style="vertical-align: top;">
 
-<h3>Training</h3>
-<p>
-   @string.Format("{0} below are several FREE trainings provided by the IdeaStrike Innovation Team.", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", listed" : "Listed"))
-</p>
+    <div>
+    <h3>Support and Suggestions</h3>
+    <p>
+        @string.Format("{0} reach out to the IdeaStrike admin group via email ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a> 
+    </p>
 
+    <h3>Trello Boards</h3>
+    <a href="https://trello.com/board/ideastrike/4f137b417201526045146b8a">Code52 IdeaStrike</a>
+    </br>
+    <a href="https://trello.com/board/frozen-bytes-ideastrikesravens/4f35331223928e892c3c2ee9">FrozenBytes IdeaStrike</a>
+    
+    <h3>Training</h3>
+    <p>
+       @string.Format("{0} below are several FREE trainings provided by the IdeaStrike Innovation Team.", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", listed" : "Listed"))
+    </p>
+    </div>
+</span>
+
+<h2>IdeaStrike 101</h2>
 <video id="my_video_1" class="video-js vjs-default-skin" width="640" height="264" poster="@Url.Content("~/Resources/ideastrike.jpg")"
         data-setup='{"controls": true, "autoplay": false, "preload": "auto" }'">
         <source src="@Url.Content("~/Resources/Video/IdeaStrike.101.theora.ogv")" type='video/ogg'>
