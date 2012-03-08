@@ -23,6 +23,8 @@ namespace Ideastrike.Nancy.Modules
                 m.Name = settings.Name;
                 string emailsTo = WebConfigurationManager.AppSettings["adminLinkTo"].ToString();
                 m.AdminLinkTo = string.Format("mailto:{0}?Subject=IdeaStrike%20Question", emailsTo);
+                m.YammerLink = string.Format("{0}&{1}", WebConfigurationManager.AppSettings["ideaStrikeYammerGroupLink"].ToString(),
+                                             WebConfigurationManager.AppSettings["ideaStrikeYammerFeedId"].ToString());
                 m.HomePage = settings.HomePage;
                 m.WelcomeMessage = _settings.WelcomeMessage;
                 return View["Support/Index", m];

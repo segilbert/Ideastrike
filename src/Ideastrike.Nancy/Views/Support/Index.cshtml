@@ -56,15 +56,18 @@
     <div>
     <h3>Support and Suggestions</h3>
     <p>
+        @string.Format("{0} reach out to the IdeaStrike admin group via email ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a>.
+        In addition, we encourage you to join the <a href="@Model.YammerLink" target="_blank">IdeaStrike Yammer Group</a> to help improve the application and collaborate on innovations and ideas!
+        </br>
+        </br>
         <a href="#faq_section">Frequently Asked Questions</a>
         </br>
-        @string.Format("{0} reach out to the IdeaStrike admin group via email ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a> 
     </p>
 
     <h3>Trello Boards</h3>
-    <a href="https://trello.com/board/ideastrike/4f137b417201526045146b8a">Code52 IdeaStrike</a>
+    <a href="https://trello.com/board/ideastrike/4f137b417201526045146b8a" target="_blank">Code52 IdeaStrike</a>
     </br>
-    <a href="https://trello.com/board/frozen-bytes-ideastrikesravens/4f35331223928e892c3c2ee9">FrozenBytes IdeaStrike</a>
+    <a href="https://trello.com/board/frozen-bytes-ideastrikesravens/4f35331223928e892c3c2ee9" target="_blank">FrozenBytes IdeaStrike</a>
     
     <h3>Training</h3>
     <p>
@@ -90,7 +93,7 @@
         </br>
         <a href="#_top">Return Top</a>
         </br>
-        <font size="1">Frequently Asked Questions is powered by <a href="http://webcloud.se/code/jQuery-Collapse/">jQuery Collaspe</a></font>
+        <font size="1">Frequently Asked Questions is powered by <a href="http://webcloud.se/code/jQuery-Collapse/" target="_blank">jQuery Collaspe</a></font>
     </p>
     <div class="faq">
         <h3>Why add ideas and innovations to IdeaStrike?</h3>
