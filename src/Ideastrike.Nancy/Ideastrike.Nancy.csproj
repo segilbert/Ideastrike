@@ -105,16 +105,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\admin_icon.jpg" />
     <Content Include="Resources\bootstrap-alerts.js" />
     <Content Include="Resources\bootstrap-dropdown.js" />
     <Content Include="Resources\ideastrike.css" />
+    <Content Include="Resources\ideastrike.jpg" />
     <Content Include="Resources\ideastrike.js" />
+    <Content Include="Resources\ideastrike_ravendb.jpg" />
+    <Content Include="Resources\jquery.collapse.js" />
     <Content Include="Resources\jquery.contra.min.js" />
     <Content Include="Resources\application.js" />
     <Content Include="Resources\blank.gif" />
     <Content Include="Resources\fancybox_loading.gif" />
     <Content Include="Resources\fancybox_sprite.png" />
     <Content Include="Resources\jquery-1.7.min.js" />
+    <Content Include="Resources\jquery.cookie.js" />
     <Content Include="Resources\jquery.fancybox.css" />
     <Content Include="Resources\jquery.fancybox.pack.js" />
     <Content Include="Resources\jquery.fileupload-ui.css" />
@@ -144,6 +149,7 @@
     <Content Include="Resources\showdown.js" />
     <Content Include="Resources\social.js" />
     <Content Include="Resources\style.css" />
+    <Content Include="Resources\support.jpg" />
     <Content Include="Scripts\pie.js" />
     <Content Include="Scripts\raphael-min.js" />
     <Content Include="Scripts\raphael.js" />

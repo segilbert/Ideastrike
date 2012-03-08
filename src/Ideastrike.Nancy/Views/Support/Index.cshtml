@@ -6,6 +6,7 @@
 @section HeadContent
 {
     <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script type="text/javascript" src='@Url.Content("~/Resources/jquery.collapse.js")'></script>
     <script src="http://vjs.zencdn.net/c/video.js"></script>
     <style>
         img.left {
@@ -31,6 +32,23 @@
         {
             margin-left:50px;
         }
+        #spacer
+        {
+            height: 400px
+        }
+        
+        .faq h3 {line-height:1;}
+        .faq h3 {padding-left: 25px; background: url("../../Resources/arrows.png") no-repeat 0 -33px; text-decoration:none;}
+        .faq h3 {border-bottom:1px solid #ccc; padding-bottom:4px;}
+        .faq h3 a {text-decoration:none;}
+        .faq h3.active {background-position: 0 5px;}
+        .faq ul {border-bottom: 2px solid #ccc; padding:10px 0 10px 20px; margin:0;}
+        .faq .active {background-color: #ddd;  background-position: 100% -21px;}
+        .faq .col {float: left; width:210px; margin-right:30px;}
+        .faq .disclaim {margin:10px; padding:10px; background: red;}
+
+        .faq ul {margin:0; padding:0; list-style:none;}
+        .faq li {margin:5px 0; padding:0;}
     </style>
 }
 
@@ -39,6 +57,8 @@
     <div>
     <h3>Support and Suggestions</h3>
     <p>
+        <a href="#faq_section">Frequently Asked Questions</a>
+        </br>
         @string.Format("{0} reach out to the IdeaStrike admin group via email ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a> 
     </p>
 
@@ -59,3 +79,68 @@
         data-setup='{"controls": true, "autoplay": false, "preload": "auto" }'>
         <source src='@Url.Content("~/Resources/Video/IdeaStrike.101.theora.ogv")' type='video/ogg'>
 </video>
+
+<div id="spacer"></div>
+
+<div class="faq_content">
+    <h2>Frequently Asked Questions <span id="faq_section"></span></h2>
+    <p>
+        @string.Format("{0} reach out to the IdeaStrike admin group for question that may not be adderss in the FAQ list. ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a>  
+        
+        </br>
+        </br>
+        <font size="1">Frequently Asked Questions is powered by <a href="http://webcloud.se/code/jQuery-Collapse/">jQuery Collaspe</a></font>
+    </p>
+    <div class="faq">
+        <h3>Why add ideas and innovations to IdeaStrike?</h3>
+        <ul>
+            <li>Hello</li>
+        </ul>
+        <h3>How can I leverage IdeaStrike?</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>How can IdeaStrike help my clients?</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>How can IdeaStrike help my career development?</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>Can I contribute to the IdeaStrike development effort?</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>If my idea is selected, can I contribute to the development effort?</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>Can I use my Deloitte login to authenticate?</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>Who can I contact if I have questions?</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>How do I comment on other people's ideas?</h3>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+@section PageScript
+{
+     <script type="text/javascript">
+         $(document).ready(function () {
+
+             $(".faq").collapse({ hide: function () {
+                 this.fadeOut();
+             }
+            });
+
+         });
+    </script>
+}
