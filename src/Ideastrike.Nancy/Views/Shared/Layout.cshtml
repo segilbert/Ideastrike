@@ -45,10 +45,11 @@
     <link href="@Url.Content("~/Resources/media.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Resources/style.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Resources/ideastrike.css")" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/Resources/jquery-1.7.min.js")"></script>
     <link href="@Url.Content("~/Resources/jquery.fancybox.css")" rel="stylesheet" />
     @RenderSection("HeadContent", false)
-    <script src="@Url.Content("~/Resources/modernizr-2.0.min.js")"></script>
-    <script src="@Url.Content("~/Resources/respond.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Resources/modernizr-2.0.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Resources/respond.min.js")"></script>
 </head>
 <body>
     <div class="topbar" data-dropdown="dropdown">
@@ -60,6 +61,7 @@
                     <li><a href="/idea/new">New Idea</a></li>
                     @*<li><a href="/inbox">Inbox</a></li>*@
                     <li><a href="/support/">Support</a></li>
+                    <li><a href="/metric/">Metrics</a></li>
                 </ul>
                 <div class="pull-right loggedin">
                 @if(Model.IsLoggedIn)
@@ -96,7 +98,6 @@
     </div>
     <!-- /container -->
     <!-- Script at the bottom for fast page loading -->
-    <script type="text/javascript" src="@Url.Content("~/Resources/jquery-1.7.min.js")"></script>
     <script src="@Url.Content("~/Resources/jquery.validate.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Resources/showdown.js")"> </script>
     <script type="text/javascript" src="@Url.Content("~/Resources/ideastrike.js")"> </script>
