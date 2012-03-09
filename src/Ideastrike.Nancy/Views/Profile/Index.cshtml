@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
 @{
     Layout = "Views/Shared/Layout.cshtml";
 }
@@ -9,6 +8,7 @@
         return string.IsNullOrEmpty(value) ? "[not set]" : value;
     }
 }
+
 <h2>
     @Model.UserName @Ideastrike.Nancy.Localization.Strings.Profile 
     <small><a href="/profile/edit">Edit</a></small>
@@ -23,13 +23,24 @@
     <div class="clearfix">
         <span>Email:  @ValueOrNotSet(Model.Email)</span>
         <span>Github: @ValueOrNotSet(Model.Github)</span>
-
-
     </div>
 </div>
 
 <section>
-    <h3>Ideas you submitted:</h3>
+    <h3>Claims:</h3>
+    @if (Model.Claims.Count > 0)
+    {
+        <ul>
+        @foreach (var i in Model.Claims)
+        {
+            <li>@i</li>
+        }
+        </ul>
+    }
+</section>
+
+<section>
+    <h3>Ideas submitted:</h3>
     @if (Model.Ideas.Count > 0)
     {
         <ul>
@@ -46,13 +57,17 @@
 </section>
 
 <section>
-    <h3>Features you submitted:</h3>
+    <h3>Features submitted:</h3>
     @if (Model.Features.Count > 0)
     {
         <ul>
         @foreach (var feature in Model.Features)
         {
-            <li class="span8 text"><a href="/idea/@feature.Idea.Id#@feature.Id">@feature.Text</a></li>
+             <li class="span8 text"><a href="/idea/@feature.Idea.Id">@feature.Idea.Title</a>
+               <div class="row">
+                    <div class="span8 text"><a href="/idea/@feature.Idea.Id#@feature.Id"><img src="@Url.Content("~/Resources/redcheck.jpg")" width="12px" height="12px" /></a> @feature.Text</div>
+                </div>   
+            </li>
         }
         </ul>
     }
@@ -63,7 +78,7 @@
 </section>
 
 <section>
-    <h3>Voted up for such ideas:</h3>
+    <h3>Votes:</h3>
     @if (Model.Votes.Count > 0)
     {
         <ul>
@@ -78,64 +93,3 @@
         <span>No votes yet..</span>
     }
 </section>
-=======
-﻿﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
-@{
-    Layout = "Views/Shared/Layout.cshtml";
-}
-<h2>@Model.Title</h2>
-<div class="ideadesc gravatarslarge"><img src="@Model.AvatarUrl" /></div>
-<h3>@Model.UserName</h3>
-<a href="/profile/edit">Edit</a>
-</br>
-</br>
-@Model.Email<br/>
-@Model.Github<br/>
-
-@if (Model.Claims.Count > 0)
-{
-    <h4>Claims</h4>
-    <ol>
-    @foreach (var i in Model.Claims)
-    {
-        <li>@i</li>
-    }
-    </ol>
-}
-@if (Model.Ideas.Count > 0)
-{
-    <h4>Innovation and Ideas</h4>
-    <ol>
-    @foreach (var i in Model.Ideas)
-    {
-        <li><a href="/idea/@i.Id">@i.Title</a></li>
-    }
-    </ol>
-}
-@if (Model.Features.Count > 0)
-{
-    <div class="features">
-        <h4>Features</h4>
-        <ol>
-        @foreach (var i in Model.Features)
-        {
-            <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a>
-               <div class="row">
-                    <div class="span8 text">@i.Text</div>
-                </div>   
-            </li>
-        }
-        </ol>
-    </div>
-}
-@if (Model.Votes.Count > 0)
-{
-    <h4>Votes</h4>
-    <ol>
-    @foreach (var i in Model.Votes)
-    {
-        <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
-    }
-    </ol>
-}
->>>>>>> ravendb

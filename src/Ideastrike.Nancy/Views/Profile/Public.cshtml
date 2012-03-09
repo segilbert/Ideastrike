@@ -2,43 +2,67 @@
 @{
     Layout = "Views/Shared/LayoutBasic.cshtml";
 }
-<h2>@Model.Title</h2>
-<div class="ideadesc gravatarslarge"><img src="@Model.AvatarUrl" /></div>
-<h3>@Model.UserName</h3>
+<h2>
+    @Model.UserName @Ideastrike.Nancy.Localization.Strings.Profile_Public
+    <small><a href="/profile/edit">Edit</a></small>
+    <span class="gravatar pull-right">
+        <img src="@Model.AvatarUrl" alt="gravatar" />
+    </span>
+</h2>
 
-@if (Model.Ideas.Count > 0)
-{
-    <h4>Innovation and Ideas</h4>
-    <ol>
-    @foreach (var i in Model.Ideas)
+<hr />
+
+<section>
+    <h3>Ideas submitted:</h3>
+    @if (Model.Ideas.Count > 0)
     {
-        <li><a href="/idea/@i.Id">@i.Title</a></li>
-    }
-    </ol>
-}
-@if (Model.Features.Count > 0)
-{
-    <div class="features">
-        <h4>Features</h4>
-        <ol>
-        @foreach (var i in Model.Features)
+        <ul>
+        @foreach (var idea in Model.Ideas)
         {
-            <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a>
+            <li class="span8 text"><a href="/idea/@idea.Id">@idea.Title</a></li>
+        }
+        </ul>
+    }
+    else
+    {
+        <span>No ideas yet.. Go ahead and create one!</span>
+    }
+</section>
+
+<section>
+    <h3>Features submitted:</h3>
+    @if (Model.Features.Count > 0)
+    {
+        <ul>
+        @foreach (var feature in Model.Features)
+        {
+             <li class="span8 text"><a href="/idea/@feature.Idea.Id">@feature.Idea.Title</a>
                <div class="row">
-                    <div class="span8 text">@i.Text</div>
+                    <div class="span8 text"><a href="/idea/@feature.Idea.Id#@feature.Id"><img src="@Url.Content("~/Resources/redcheck.jpg")" width="12px" height="12px" /></a> @feature.Text</div>
                 </div>   
             </li>
         }
-        </ol>
-    </div>
-}
-@if (Model.Votes.Count > 0)
-{
-    <h4>Votes</h4>
-    <ol>
-    @foreach (var i in Model.Votes)
-    {
-        <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
+        </ul>
     }
-    </ol>
-}
+    else
+    {
+        <span>No features yet..</span>
+    }
+</section>
+
+<section>
+    <h3>Votes:</h3>
+    @if (Model.Votes.Count > 0)
+    {
+        <ul>
+        @foreach (var vote in Model.Votes)
+        {
+            <li class="span8 text"><a href="/idea/@vote.Idea.Id">@vote.Idea.Title</a></li>
+        }
+        </ul>
+    }
+    else
+    {
+        <span>No votes yet..</span>
+    }
+</section>

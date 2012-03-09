@@ -646,6 +646,15 @@ namespace Ideastrike.Nancy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Public Profile.
+        /// </summary>
+        public static string Profile_Public {
+            get {
+                return ResourceManager.GetString("Profile_Public", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User Name.
         /// </summary>
         public static string Profile_UserName {

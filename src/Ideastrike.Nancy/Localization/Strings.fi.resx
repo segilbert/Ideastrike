@@ -324,4 +324,7 @@
   <data name="Idea_New_Submit" xml:space="preserve">
     <value>Lähetä uusi idea</value>
   </data>
+  <data name="Profile_Public" xml:space="preserve">
+    <value>Le profil public</value>
+  </data>
 </root>

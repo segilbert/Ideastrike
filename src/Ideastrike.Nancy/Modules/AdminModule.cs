@@ -114,6 +114,7 @@ namespace Ideastrike.Nancy.Modules
                                     Features = f,
                                     Votes = v,
                                     Claims = user.Claims.ToList(),
+                                    Users = users.GetAll(),
                                     IsLoggedIn = false 
                                 }];
                         };

@@ -14,13 +14,8 @@ namespace Ideastrike.Nancy.Modules
         public readonly IUserRepository _users;
         public readonly IFeatureRepository _features;
         public readonly IIdeaRepository _ideas;
-<<<<<<< HEAD
 
         public ProfileModule(IUserRepository users, IIdeaRepository ideas, IFeatureRepository features)
-=======
-        
-        public UserModule(IUserRepository users, IIdeaRepository ideas, IFeatureRepository features)
->>>>>>> ravendb
         {
             _users = users;
             _ideas = ideas;
@@ -40,23 +35,15 @@ namespace Ideastrike.Nancy.Modules
                                       return View["Profile/Index",
                                           new
                                           {
-<<<<<<< HEAD
-                                              Title = "Profile", 
-                                              Id = user.Id, 
-                                              UserName = user.UserName, 
-                                              Email = user.Email, 
-=======
                                               Title = "Profile",
                                               Id = user.Id,
                                               UserName = user.UserName,
                                               AvatarUrl = user.AvatarUrl,
                                               Email = user.Email,
->>>>>>> ravendb
                                               Github = user.Github,
                                               Ideas = usersIdeas,
                                               Features = usersFeatures,
                                               Votes = usersVotes,
-                                              AvatarUrl = user.AvatarUrl,
                                               Claims = user.Claims.ToList(),
                                               IsLoggedIn = Context.IsLoggedIn()
                                           }];

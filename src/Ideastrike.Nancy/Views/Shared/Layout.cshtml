@@ -70,11 +70,7 @@
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" style="min-width:160px;">@*<img src="@@Model.GravatarUrl" />*@ @Model.UserName </a>
                           <ul class="dropdown-menu">
-<<<<<<< HEAD
-                              <li><a href="/profile">Profile</a></li>
-=======
                               <li><a href="/profile/">Profile</a></li>
->>>>>>> ravendb
                               @if (Model.Claims != null && Model.Claims.Contains("admin"))
                               {
                                   <li><a href="/admin/">@Ideastrike.Nancy.Localization.Strings.Layout_AdminPanel</a></li>
