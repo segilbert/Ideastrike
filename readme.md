@@ -6,10 +6,6 @@ Once an idea gets enough interest to kick start a project, the other systems tha
 
 The existing tools out there are decent at what they do, but we want something more customisable and extensible.
 
-### ToDo
-
- * Migrate to RavenDb
-
 ### Features
 
  * The website uses NancyFx - hosted on ASP.NET but can be supported on any OWIN-capable host.
@@ -17,6 +13,8 @@ The existing tools out there are decent at what they do, but we want something m
  * Markdown support just about everywhere on the site. And a preview mode too, using Showdown.
  * Twitter Bootstrap has been used as the baseline for our site theme.
  * Image Uploading using the jQuery File Upload plugin.
+ * Easily added video to the Support page using HTML 5 and Video.js
+ * Create highly interactive, cool looking charts with Raphael.js
  * AppHarbor support 
 
 ### Getting started
