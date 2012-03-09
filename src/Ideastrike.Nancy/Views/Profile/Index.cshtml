@@ -9,22 +9,34 @@
 
 @if (Model.Ideas.Count > 0)
 {
-    foreach (var i in Model.Ideas)
+    <h4>Innovation and Ideas</h4>
+    <ol>
+    @foreach (var i in Model.Ideas)
     {
-        <div class="span8 text">@i.Title</div><br/>
+        <li><a href="/idea/@i.Id">@i.Title</a></li>
     }
+    </ol>
 }
 @if (Model.Features.Count > 0)
 {
-    foreach (var i in Model.Features)
+    <h4>Features</h4>
+    <ol>
+    @foreach (var i in Model.Features)
     {
-        <div class="span8 text">@i.Title</div><br/>
+        <li><a href="/idea/@i.Id">@i.Idea.Title</a>
+            </br>
+            @i.Text
+        </li>
     }
+    </ol>
 }
 @if (Model.Votes.Count > 0)
 {
-    foreach (var i in Model.Votes)
+    <h4>Votes</h4>
+    <ol>
+    @foreach (var i in Model.Votes)
     {
-        <div class="span8 text">@i.Idea.Title</div><br/>
+        <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
     }
+    </ol>
 }
