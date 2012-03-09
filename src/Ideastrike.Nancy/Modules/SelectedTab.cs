@@ -6,4 +6,11 @@ namespace Ideastrike.Nancy.Modules
         Hot = 1,
         New = 2
     }
+
+    public enum MetricSelectedTab
+    {
+        MostInnovations = 0,
+        MostActive = 1,
+        MostVotes = 2
+    }
 }

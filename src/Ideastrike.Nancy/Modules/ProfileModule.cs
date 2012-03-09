@@ -14,17 +14,22 @@ namespace Ideastrike.Nancy.Modules
         public readonly IUserRepository _users;
         public readonly IFeatureRepository _features;
         public readonly IIdeaRepository _ideas;
+<<<<<<< HEAD
 
         public ProfileModule(IUserRepository users, IIdeaRepository ideas, IFeatureRepository features)
+=======
+        
+        public UserModule(IUserRepository users, IIdeaRepository ideas, IFeatureRepository features)
+>>>>>>> ravendb
         {
             _users = users;
             _ideas = ideas;
             _features = features;
-
-            this.RequiresAuthentication();
-
+        
             Get["/profile"] = _ =>
                                   {
+                                      this.RequiresAuthentication();
+
                                       User user = Context.GetCurrentUser(_users);
                                       if (user == null) return Response.AsRedirect("/");
 
@@ -35,10 +40,18 @@ namespace Ideastrike.Nancy.Modules
                                       return View["Profile/Index",
                                           new
                                           {
+<<<<<<< HEAD
                                               Title = "Profile", 
                                               Id = user.Id, 
                                               UserName = user.UserName, 
                                               Email = user.Email, 
+=======
+                                              Title = "Profile",
+                                              Id = user.Id,
+                                              UserName = user.UserName,
+                                              AvatarUrl = user.AvatarUrl,
+                                              Email = user.Email,
+>>>>>>> ravendb
                                               Github = user.Github,
                                               Ideas = usersIdeas,
                                               Features = usersFeatures,
@@ -49,8 +62,34 @@ namespace Ideastrike.Nancy.Modules
                                           }];
                                   };
 
+            Get["/profile/public/{id}"] = parameters =>
+                                        {
+                                            Guid userId = parameters.id;
+                
+                                            User user = _users.Get(userId);
+
+                                            var i = _ideas.GetAll().Where(u => u.Author.Id == user.Id).ToList();
+                                            var f = _features.GetAll().Where(u => u.User.Id == user.Id).ToList();
+                                            var v = _users.GetVotes(user.Id).ToList();
+
+                                            return View["Profile/Public",
+                                                new
+                                                {
+                                                    Title = "Public Profile",
+                                                    Id = user.Id,
+                                                    UserName = user.UserName,
+                                                    AvatarUrl = user.AvatarUrl,
+                                                    Ideas = i,
+                                                    Features = f,
+                                                    Votes = v,
+                                                    IsLoggedIn = false 
+                                                }];
+                                        };
+
             Get["/profile/edit"] = _ =>
                                        {
+                                           this.RequiresAuthentication();
+
                                            User user = Context.GetCurrentUser(_users);
                                            if (user == null) return Response.AsRedirect("/");
 
@@ -69,6 +108,8 @@ namespace Ideastrike.Nancy.Modules
 
             Post["/profile/checkuser"] = _ =>
                                              {
+                                                 this.RequiresAuthentication();
+
                                                  string username = Request.Form.username;
 
                                                  var userExists = _users.FindBy(u => u.UserName == username).Any();
@@ -92,6 +133,8 @@ namespace Ideastrike.Nancy.Modules
 
             Post["/profile/save"] = _ =>
                                         {
+                                            this.RequiresAuthentication();
+
                                             var user = Context.GetCurrentUser(_users);
                                             user.UserName = Request.Form.username;
                                             user.Email = Request.Form.email;

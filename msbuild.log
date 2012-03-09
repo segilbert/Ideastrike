@@ -1,0 +1,135 @@
+Build started 2/11/2012 10:02:04 PM.
+     1>Project "C:\work\git\ideastrike\build.proj" on node 1 (AppHarbor target(s)).
+     1>Compile:
+          ===========Building Website===========
+     1>Project "C:\work\git\ideastrike\build.proj" (1) is building "C:\work\git\ideastrike\src\Ideastrike.sln" (2) on node 1 (default targets).
+     2>ValidateSolutionConfiguration:
+         Building solution configuration "Debug|Any CPU".
+     2>Project "C:\work\git\ideastrike\src\Ideastrike.sln" (2) is building "C:\work\git\ideastrike\src\Ideastrike.Nancy\Ideastrike.Nancy.csproj" (3) on node 1 (default targets).
+     3>RestorePackages:
+         "C:\work\git\ideastrike\src\.nuget\nuget.exe" install "C:\work\git\ideastrike\src\Ideastrike.Nancy\packages.config" -source "" -o "C:\work\git\ideastrike\src\packages"
+     2>Project "C:\work\git\ideastrike\src\Ideastrike.sln" (2) is building "C:\work\git\ideastrike\tests\IdeaStrike.Tests\IdeaStrike.Tests.csproj" (4) on node 2 (default targets).
+     4>RestorePackages:
+         "C:\work\git\ideastrike\src\.nuget\nuget.exe" install "C:\work\git\ideastrike\tests\IdeaStrike.Tests\packages.config" -source "" -o "C:\work\git\ideastrike\src\packages"
+     3>RestorePackages:
+         All packages listed in packages.config are already installed.
+     4>RestorePackages:
+         All packages listed in packages.config are already installed.
+     3>GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+       Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+       _CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_large.png" to "bin\Resources\logo_large.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_med.png" to "bin\Resources\logo_med.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_small.png" to "bin\Resources\logo_small.png".
+       CopyFilesToOutputDirectory:
+         Ideastrike.Nancy -> C:\work\git\ideastrike\src\Ideastrike.Nancy\bin\Ideastrike.Nancy.dll
+     3>Done Building Project "C:\work\git\ideastrike\src\Ideastrike.Nancy\Ideastrike.Nancy.csproj" (default targets).
+     4>GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+       Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+       _CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_large.png" to "bin\Debug\Resources\logo_large.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_med.png" to "bin\Debug\Resources\logo_med.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_small.png" to "bin\Debug\Resources\logo_small.png".
+       _CopyAppConfigFile:
+       Skipping target "_CopyAppConfigFile" because all output files are up-to-date with respect to the input files.
+       CopyFilesToOutputDirectory:
+         IdeaStrike.Tests -> C:\work\git\ideastrike\tests\IdeaStrike.Tests\bin\Debug\IdeaStrike.Tests.dll
+       AfterBuild:
+         xUnit.net MSBuild runner (32-bit .NET 4.0.30319.239)
+         xunit.dll:     Version 1.9.0.1566
+         Test assembly: C:\work\git\ideastrike\tests\IdeaStrike.Tests\bin\debug\IdeaStrike.Tests.dll
+             IdeaStrike.Tests.AdminModuleTests.when_an_authenticated_user_views_the_admin_page.it_should_set_the_status_code_to_ok
+             IdeaStrike.Tests.AdminModuleTests.when_an_unauthenticated_user_views_the_admin_page.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.ApiModuleTests.when_posting_a_new_idea.it_should_return_created
+             IdeaStrike.Tests.ApiModuleTests.when_posting_a_new_idea.it_should_add_the_idea
+             IdeaStrike.Tests.ApiModuleTests.when_updating_an_idea.it_should_update_the_idea
+             IdeaStrike.Tests.ApiModuleTests.when_updating_an_idea.it_should_return_created
+             IdeaStrike.Tests.CommentModuleTests.when_adding_a_new_comment.it_should_add_the_comment
+             IdeaStrike.Tests.CommentModuleTests.when_an_unauthenticated_user_adds_a_comment.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.FeatureModuleTests.when_adding_a_new_feature.it_should_add_the_new_feature
+             IdeaStrike.Tests.FeatureModuleTests.when_an_unauthenticated_user_adds_a_features.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.HomeModuleTests.when_viewing_the_home_page.it_should_set_the_status_code_to_ok_for_the_home_page
+             IdeaStrike.Tests.IdeaModuleTests.when_an_unauthorized_user_creates_a_new_idea.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.IdeaModuleTests.when_an_unauthorized_user_creates_a_new_idea.it_should_not_add_a_new_idea_to_the_repository
+             IdeaStrike.Tests.IdeaModuleTests.when_creating_a_new_idea.it_should_add_a_new_idea_to_the_repository
+             IdeaStrike.Tests.IdeaModuleTests.when_creating_a_new_idea.it_should_redirect_to_the_new_idea
+             IdeaStrike.Tests.IdeaModuleTests.when_deleting_a_idea.it_should_delete_the_idea_from_the_repository
+             IdeaStrike.Tests.IdeaModuleTests.when_viewing_the_idea_page.it_should_set_the_status_code_to_ok_for_the_idea_page
+             IdeaStrike.Tests.IdeaModuleTests.when_voting_for_an_item.it_should_register_the_vote
+           Tests: 18, Failures: 0, Skipped: 0, Time: 2.990 seconds
+     4>Done Building Project "C:\work\git\ideastrike\tests\IdeaStrike.Tests\IdeaStrike.Tests.csproj" (default targets).
+     2>Done Building Project "C:\work\git\ideastrike\src\Ideastrike.sln" (default targets).
+     1>AppHarbor:
+         ===========Testing AppHarbor Build===========
+     1>Project "C:\work\git\ideastrike\build.proj" (1) is building "C:\work\git\ideastrike\src\AppHarbor.sln" (5) on node 1 (default targets).
+     5>ValidateSolutionConfiguration:
+         Building solution configuration "Debug|Any CPU".
+     5>Project "C:\work\git\ideastrike\src\AppHarbor.sln" (5) is building "C:\work\git\ideastrike\tests\IdeaStrike.Tests\IdeaStrike.Tests.csproj" (4:2) on node 1 (default targets).
+     4>RestorePackages:
+         "C:\work\git\ideastrike\src\.nuget\nuget.exe" install "C:\work\git\ideastrike\tests\IdeaStrike.Tests\packages.config" -source "" -o "C:\work\git\ideastrike\src\packages"
+     5>Project "C:\work\git\ideastrike\src\AppHarbor.sln" (5) is building "C:\work\git\ideastrike\src\Ideastrike.Nancy\Ideastrike.Nancy.csproj" (3:5) on node 2 (default targets).
+     3>RestorePackages:
+         "C:\work\git\ideastrike\src\.nuget\nuget.exe" install "C:\work\git\ideastrike\src\Ideastrike.Nancy\packages.config" -source "" -o "C:\work\git\ideastrike\src\packages"
+     4>RestorePackages:
+         All packages listed in packages.config are already installed.
+     3>RestorePackages:
+         All packages listed in packages.config are already installed.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+       Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+       _CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_large.png" to "bin\Resources\logo_large.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_med.png" to "bin\Resources\logo_med.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_small.png" to "bin\Resources\logo_small.png".
+       CopyFilesToOutputDirectory:
+         Ideastrike.Nancy -> C:\work\git\ideastrike\src\Ideastrike.Nancy\bin\Ideastrike.Nancy.dll
+     3>Done Building Project "C:\work\git\ideastrike\src\Ideastrike.Nancy\Ideastrike.Nancy.csproj" (default targets).
+     4>GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreCompile:
+       Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+       _CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_large.png" to "bin\Debug\Resources\logo_large.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_med.png" to "bin\Debug\Resources\logo_med.png".
+         Copying file from "C:\work\git\ideastrike\src\Ideastrike.Nancy\Resources\logo_small.png" to "bin\Debug\Resources\logo_small.png".
+       _CopyAppConfigFile:
+       Skipping target "_CopyAppConfigFile" because all output files are up-to-date with respect to the input files.
+       CopyFilesToOutputDirectory:
+         IdeaStrike.Tests -> C:\work\git\ideastrike\tests\IdeaStrike.Tests\bin\Debug\IdeaStrike.Tests.dll
+       AfterBuild:
+         xUnit.net MSBuild runner (32-bit .NET 4.0.30319.239)
+         xunit.dll:     Version 1.9.0.1566
+         Test assembly: C:\work\git\ideastrike\tests\IdeaStrike.Tests\bin\debug\IdeaStrike.Tests.dll
+             IdeaStrike.Tests.AdminModuleTests.when_an_authenticated_user_views_the_admin_page.it_should_set_the_status_code_to_ok
+             IdeaStrike.Tests.AdminModuleTests.when_an_unauthenticated_user_views_the_admin_page.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.ApiModuleTests.when_posting_a_new_idea.it_should_add_the_idea
+             IdeaStrike.Tests.ApiModuleTests.when_posting_a_new_idea.it_should_return_created
+             IdeaStrike.Tests.ApiModuleTests.when_updating_an_idea.it_should_update_the_idea
+             IdeaStrike.Tests.ApiModuleTests.when_updating_an_idea.it_should_return_created
+             IdeaStrike.Tests.CommentModuleTests.when_adding_a_new_comment.it_should_add_the_comment
+             IdeaStrike.Tests.CommentModuleTests.when_an_unauthenticated_user_adds_a_comment.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.FeatureModuleTests.when_adding_a_new_feature.it_should_add_the_new_feature
+             IdeaStrike.Tests.FeatureModuleTests.when_an_unauthenticated_user_adds_a_features.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.HomeModuleTests.when_viewing_the_home_page.it_should_set_the_status_code_to_ok_for_the_home_page
+             IdeaStrike.Tests.IdeaModuleTests.when_an_unauthorized_user_creates_a_new_idea.it_should_redirect_to_the_login_page
+             IdeaStrike.Tests.IdeaModuleTests.when_an_unauthorized_user_creates_a_new_idea.it_should_not_add_a_new_idea_to_the_repository
+             IdeaStrike.Tests.IdeaModuleTests.when_creating_a_new_idea.it_should_add_a_new_idea_to_the_repository
+             IdeaStrike.Tests.IdeaModuleTests.when_creating_a_new_idea.it_should_redirect_to_the_new_idea
+             IdeaStrike.Tests.IdeaModuleTests.when_deleting_a_idea.it_should_delete_the_idea_from_the_repository
+             IdeaStrike.Tests.IdeaModuleTests.when_viewing_the_idea_page.it_should_set_the_status_code_to_ok_for_the_idea_page
+             IdeaStrike.Tests.IdeaModuleTests.when_voting_for_an_item.it_should_register_the_vote
+           Tests: 18, Failures: 0, Skipped: 0, Time: 3.027 seconds
+     4>Done Building Project "C:\work\git\ideastrike\tests\IdeaStrike.Tests\IdeaStrike.Tests.csproj" (default targets).
+     5>Done Building Project "C:\work\git\ideastrike\src\AppHarbor.sln" (default targets).
+     1>Done Building Project "C:\work\git\ideastrike\build.proj" (AppHarbor target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:10.18

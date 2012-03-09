@@ -29,9 +29,9 @@
             e.id = 'janrainAuthWidget';
 
             if (document.location.protocol === 'https:') {
-                e.src = 'https://rpxnow.com/js/lib/code52/engage.js';
+                e.src = 'https://rpxnow.com/js/lib/frozenbytes-ideastrike/engage.js';
             } else {
-                e.src = 'http://widget-cdn.rpxnow.com/js/lib/code52/engage.js';
+                e.src = 'http://widget-cdn.rpxnow.com/js/lib/frozenbytes-ideastrike/engage.js';
             }
 
             var s = document.getElementsByTagName('script')[0];
@@ -45,10 +45,11 @@
     <link href="@Url.Content("~/Resources/media.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Resources/style.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Resources/ideastrike.css")" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/Resources/jquery-1.7.min.js")"></script>
     <link href="@Url.Content("~/Resources/jquery.fancybox.css")" rel="stylesheet" />
     @RenderSection("HeadContent", false)
-    <script src="@Url.Content("~/Resources/modernizr-2.0.min.js")"></script>
-    <script src="@Url.Content("~/Resources/respond.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Resources/modernizr-2.0.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Resources/respond.min.js")"></script>
 </head>
 <body>
     <div class="topbar" data-dropdown="dropdown">
@@ -59,6 +60,8 @@
                     <li><a href="/">@Ideastrike.Nancy.Localization.Strings.Layout_Home</a></li>
                     <li><a href="/idea/new">@Ideastrike.Nancy.Localization.Strings.Layout_NewIdea</a></li>
                     @*<li><a href="/inbox">Inbox</a></li>*@
+                    <li><a href="/support/">Support</a></li>
+                    <li><a href="/metric/">Metrics</a></li>
                 </ul>
                 <div class="pull-right loggedin">
                 @if(Model.IsLoggedIn)
@@ -67,7 +70,11 @@
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" style="min-width:160px;">@*<img src="@@Model.GravatarUrl" />*@ @Model.UserName </a>
                           <ul class="dropdown-menu">
+<<<<<<< HEAD
                               <li><a href="/profile">Profile</a></li>
+=======
+                              <li><a href="/profile/">Profile</a></li>
+>>>>>>> ravendb
                               @if (Model.Claims != null && Model.Claims.Contains("admin"))
                               {
                                   <li><a href="/admin/">@Ideastrike.Nancy.Localization.Strings.Layout_AdminPanel</a></li>
@@ -83,23 +90,19 @@
                 }
                 </div>
             </div>
-            <a id="github-banner" href="https://github.com/code52/ideastrike">
-                <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
-                    alt="Fork me on GitHub">
-            </a>
         </div>
     </div>
     <div class="container">
         <div class="content">
+            <span id="_top"></span>
             @RenderBody()
         </div>
         <footer>
-            <p><a href="https://github.com/code52/ideastrike">Powered by Ideastrike</a></p>
+            <p><a href="https://github.com/segilbert/Ideastrike">Powered by Ideastrike</a></p>
         </footer>
     </div>
     <!-- /container -->
     <!-- Script at the bottom for fast page loading -->
-    <script type="text/javascript" src="@Url.Content("~/Resources/jquery-1.7.min.js")"></script>
     <script src="@Url.Content("~/Resources/jquery.validate.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Resources/showdown.js")"> </script>
     <script type="text/javascript" src="@Url.Content("~/Resources/ideastrike.js")"> </script>

@@ -1,0 +1,157 @@
+﻿﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+@{
+    Layout = "Views/Shared/Layout.cshtml";
+}
+
+@section HeadContent
+{
+    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script type="text/javascript" src='@Url.Content("~/Resources/jquery.collapse.js")'></script>
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
+    <style>
+        img.left {
+	        float:left;
+	        margin-right:1.5em;
+        }
+
+        img.right {
+	        float:right;
+	        margin-left:1.5em;
+        }
+
+        img.center {
+	        display:block;
+	        margin:0 auto 1.5em;
+        }
+
+        img.left, img.right {
+	        margin-bottom:.8em;
+        }
+        
+        ul.left 
+        {
+            margin-left:50px;
+        }
+        #spacer
+        {
+            height: 400px
+        }
+        
+        .faq h3 {line-height:1;}
+        .faq h3 {padding-left: 25px; background: url("../../Resources/arrows.png") no-repeat 0 -33px; text-decoration:none;}
+        .faq h3 {border-bottom:1px solid #ccc; padding-bottom:4px;}
+        .faq h3 a {text-decoration:none;}
+        .faq h3.active {background-position: 0 5px;}
+        .faq ul {border-bottom: 2px solid #ccc; padding:10px 0 10px 20px; margin:0;}
+        .faq .active {background-color: #ddd;  background-position: 100% -21px;}
+        .faq .col {float: left; width:210px; margin-right:30px;}
+        .faq .disclaim {margin:10px; padding:10px; background: red;}
+
+        .faq ul {margin:0; padding:0; list-style:none;}
+        .faq li {margin:5px 0; padding:0;}
+    </style>
+}
+<img class="left" src="@Url.Content("~/Resources/support.jpg")" title="Support" alt="Support"><span style="vertical-align: top;">
+
+    <div>
+    <h3>Support and Suggestions</h3>
+    <p>
+        @string.Format("{0} reach out to the IdeaStrike admin group via email ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a>.
+        In addition, we encourage you to join the <a href="@Model.YammerLink" target="_blank">IdeaStrike Yammer Group</a> to help improve the application and collaborate on innovations and ideas!
+        </br>
+        </br>
+        <a href="#faq_section">Frequently Asked Questions</a>
+        </br>
+    </p>
+
+    <h3>Trello Boards</h3>
+    <a href="https://trello.com/board/ideastrike/4f137b417201526045146b8a" target="_blank">Code52 IdeaStrike</a>
+    </br>
+    <a href="https://trello.com/board/frozen-bytes-ideastrikesravens/4f35331223928e892c3c2ee9" target="_blank">FrozenBytes IdeaStrike</a>
+    
+    <h3>Training</h3>
+    <p>
+       @string.Format("{0} below are several FREE trainings provided by the IdeaStrike Innovation Team.", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", listed" : "Listed"))
+    </p>
+    </div>
+</span>
+
+<h2>IdeaStrike 101</h2>
+<video id="my_video_1" class="video-js vjs-default-skin" width="640" height="264" poster='@Url.Content("~/Resources/ideastrike.jpg")'
+        data-setup='{"controls": true, "autoplay": false, "preload": "auto" }'>
+        <source src='@Url.Content("~/Resources/Video/IdeaStrike.101.theora.ogv")' type='video/ogg'>
+</video>
+
+<div id="spacer"></div>
+
+<div class="faq_content">
+    <h2>Frequently Asked Questions <span id="faq_section"></span></h2>
+    <p>
+        @string.Format("{0} reach out to the IdeaStrike admin group for question that may not be adderss in the FAQ list. ", (!string.IsNullOrWhiteSpace(Model.UserName) ? Model.UserName + ", please" : "Please")) <a href="@Model.AdminLinkTo">Admin Group</a>  
+        
+        </br>
+        </br>
+        <a href="#_top">Return Top</a>
+        </br>
+        <font size="1">Frequently Asked Questions is powered by <a href="http://webcloud.se/code/jQuery-Collapse/" target="_blank">jQuery Collaspe</a></font>
+    </p>
+    <div class="faq">
+        <h3>Why add ideas and innovations to IdeaStrike?</h3>
+        <ul>
+            <li>Innovation is the introduction of anything new or different and innovation can happen anywhere, 
+            not just in R&D centers, and by anyone who is scientists/researchers. 
+            Ideastrike is here to capture those ideas, validate and implement them in timely fashion.</li>
+        </ul>
+        <h3>How can I leverage IdeaStrike?</h3>
+        <ul>
+            <li>By adding your innovative idea, you can expand your knowledge with teams and that will help your networking skills.</li>
+        </ul>
+        <h3>How can IdeaStrike help my clients?</h3>
+        <ul>
+            <li>Every client is different.  IdeaStrike really helps here as we can help clients by paying for some new ideas out of our own efforts.</li>
+        </ul>
+        <h3>How can IdeaStrike help my career development?</h3>
+        <ul>
+            <li>IdeaStrike helps your career development in many ways.  Any work you do for Ideastrike will count towards your  practice development
+                By sharing your idea, you are getting chance to brainstorm your idea with group of team members and will end up learning new other things from team.
+                Rewards and recognitions once your idea gets selected.
+            </li>
+        </ul>
+        <h3>Can I contribute to the IdeaStrike development effort?</h3>
+        <ul>
+            <li>Yes.  Please reach out to the IdeaStrike <a href="@Model.AdminLinkTo">Admin Group</a>.</li>
+        </ul>
+        <h3>If my idea is selected, can I contribute to the development effort?</h3>
+        <ul>
+            <li>Yes. There are lots opportunities available to contribute.
+
+                .NET Development, Requirement gathering, High level Design, Testing and deploying </li>
+        </ul>
+        <h3>Can I use my company login to authenticate?</h3>
+        <ul>
+            <li>No. IdeaStrike supports Google account, yahoo account, OpenID  </li>
+        </ul>
+        <h3>Who can I contact if I have questions?</h3>
+        <ul>
+            <li>IdeaStrike <a href="@Model.AdminLinkTo">Admin Group</a>.</li>
+        </ul>
+        <h3>Can comment on other people's ideas?</h3>
+        <ul>
+            <li>Yes. But your comments will be approved and posted to Ideastrike after reviewed by review team.</li>
+        </ul>
+    </div>
+</div>
+
+@section PageScript
+{
+     <script type="text/javascript">
+         $(document).ready(function () {
+
+             $(".faq").collapse({ hide: function () {
+                 this.fadeOut();
+             }
+            });
+
+         });
+    </script>
+}

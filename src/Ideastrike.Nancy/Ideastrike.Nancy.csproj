@@ -41,6 +41,15 @@
     <Reference Include="Autofac.Configuration">
       <HintPath>..\packages\Autofac.2.5.2.830\lib\NET40\Autofac.Configuration.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
+=======
+    <Reference Include="Devtalk.EF.CodeFirst">
+      <HintPath>..\packages\EFCodeFirst.CreateTablesOnly.1.0.2\lib\Devtalk.EF.CodeFirst.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    </Reference>
+>>>>>>> ravendb
     <Reference Include="EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.4.3.0-beta1\lib\net40\EntityFramework.dll</HintPath>
@@ -99,16 +108,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\admin_icon.jpg" />
+    <Content Include="Resources\arrows.png" />
     <Content Include="Resources\bootstrap-alerts.js" />
     <Content Include="Resources\bootstrap-dropdown.js" />
     <Content Include="Resources\ideastrike.css" />
+    <Content Include="Resources\ideastrike.jpg" />
     <Content Include="Resources\ideastrike.js" />
+    <Content Include="Resources\ideastrike_ravendb.jpg" />
+    <Content Include="Resources\jquery.collapse.js" />
     <Content Include="Resources\jquery.contra.min.js" />
     <Content Include="Resources\application.js" />
     <Content Include="Resources\blank.gif" />
     <Content Include="Resources\fancybox_loading.gif" />
     <Content Include="Resources\fancybox_sprite.png" />
     <Content Include="Resources\jquery-1.7.min.js" />
+    <Content Include="Resources\jquery.cookie.js" />
     <Content Include="Resources\jquery.fancybox.css" />
     <Content Include="Resources\jquery.fancybox.pack.js" />
     <Content Include="Resources\jquery.fileupload-ui.css" />
@@ -129,11 +144,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\mustache.js" />
+    <Content Include="Resources\pie-print.css" />
+    <Content Include="Resources\pie.css" />
+    <Content Include="Resources\pie.js" />
+    <Content Include="Resources\raphael-min.js" />
+    <Content Include="Resources\raphael.js" />
     <Content Include="Resources\respond.min.js" />
     <Content Include="Resources\showdown.js" />
     <Content Include="Resources\social.js" />
+    <Content Include="Resources\state.gif" />
     <Content Include="Resources\style.css" />
+<<<<<<< HEAD
     <Content Include="Resources\Validation\newidea.js" />
+=======
+    <Content Include="Resources\support.jpg" />
+>>>>>>> ravendb
     <Content Include="Views\Shared\Templates\comment.html" />
     <Content Include="Views\Shared\Templates\github.html" />
     <Content Include="Views\Shared\Templates\download.html" />
@@ -147,6 +172,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +238,7 @@
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Repositories\UserRepository.cs" />
+    <Compile Include="Models\ViewModels\MetricViewModel.cs" />
     <Compile Include="Models\Vote.cs" />
     <Compile Include="Modules\AdminModule.cs" />
     <Compile Include="Modules\ApiModule.cs" />
@@ -219,8 +246,14 @@
     <Compile Include="Modules\CommentModule.cs" />
     <Compile Include="Modules\FeatureModule.cs" />
     <Compile Include="Modules\IdeaModule.Secured.cs" />
+    <Compile Include="Modules\MetricModule.cs" />
     <Compile Include="Modules\SelectedTab.cs" />
+<<<<<<< HEAD
     <Compile Include="Modules\ProfileModule.cs" />
+=======
+    <Compile Include="Modules\SupportModule.cs" />
+    <Compile Include="Modules\UserModule.cs" />
+>>>>>>> ravendb
     <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Modules\IdeaModule.cs" />
@@ -233,7 +266,7 @@
     <Content Include="Resources\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Shared\LayoutBasic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
@@ -274,6 +307,14 @@
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Admin\Users.cshtml" />
     <Content Include="Views\Admin\Uservoice.cshtml" />
+    <Content Include="Views\Support\Index.cshtml" />
+    <Content Include="Views\Metric\Index.cshtml" />
+    <Content Include="Views\Profile\Public.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Admin\User.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Video\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\Strings.fi.resx">
@@ -297,8 +338,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55103</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost/Ideastrike.Nancy</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

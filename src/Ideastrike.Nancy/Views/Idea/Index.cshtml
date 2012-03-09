@@ -48,7 +48,16 @@
     @idea.Description
 </div>
 
-<div class="ideadesc gravatarsmall"><img src="@idea.GravatarUrl" /> <a href="">@idea.Author.UserName</a> <span class="ideadate">@FriendlyTimeHelper.Parse(idea.Time)</span>
+<div class="ideadesc gravatarsmall"><img src="@idea.GravatarUrl" /> 
+@if (idea.Author.UserName == Model.UserName)
+{
+    <a href="/profile/">@idea.Author.UserName</a> 
+}
+else
+{
+    <a href="/profile/public/@idea.Author.Id">@idea.Author.UserName</a> 
+} 
+<span class="ideadate">@FriendlyTimeHelper.Parse(idea.Time)</span>
 @if (idea.Author.UserName == Model.UserName)
 { 
     <a href="/idea/@idea.Id/edit">@Ideastrike.Nancy.Localization.Strings.Common_Edit</a>

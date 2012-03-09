@@ -10,7 +10,7 @@ namespace Ideastrike.Nancy.Modules
 {
     public class LoginModule : NancyModule
     {
-        public const string apikey = "46ad5595cb74064655718a434126ef9f11a51a70";
+        public const string apikey = "5df37f5e2ca9c5527335608e1f578766266165f5";
 
         private IUserRepository _user;
 

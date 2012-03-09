@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿//
+using System;
 using System.Web;
-using System.Web.Mvc;
 
 namespace Ideastrike.Nancy.Helpers
 {
@@ -16,13 +14,18 @@ namespace Ideastrike.Nancy.Helpers
                 Host = httpContext.Request.Url.Host,
                 Path = "/",
                 Port = 80,
+#if ( DEBUG )
                 Scheme = "http",
+#else
+                Scheme = "https",
+#endif
             };
 
-            if (httpContext.Request.IsLocal)
-            {
-                uriBuilder.Port = httpContext.Request.Url.Port;
-            }
+            // Always set for now as we want to include the port number
+            uriBuilder.Port = httpContext.Request.Url.Port;
+           
+            var err = new ElmahErrorHandler.LogEvent(uriBuilder + " ---- " + new Uri(uriBuilder.Uri, relativeUri).AbsoluteUri);
+            err.Raise();
 
             return new Uri(uriBuilder.Uri, relativeUri).AbsoluteUri;
         }

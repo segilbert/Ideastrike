@@ -6,6 +6,10 @@ Once an idea gets enough interest to kick start a project, the other systems tha
 
 The existing tools out there are decent at what they do, but we want something more customisable and extensible.
 
+### ToDo
+
+ * Migrate to RavenDb
+
 ### Features
 
  * The website uses NancyFx - hosted on ASP.NET but can be supported on any OWIN-capable host.

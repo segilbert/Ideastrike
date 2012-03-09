@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [Oo]bj/
 [Bb]in/
 *.user
@@ -16,3 +17,23 @@ post-build*
 _ReSharper.*
 *deploy-to-ec2*
 *ncrunch*
+=======
+[Oo]bj/
+[Bb]in/
+*.user
+/TestResults
+*.vspscc
+*.vssscc
+deploy
+deploy/*
+*.suo
+*.cache
+*.docstates
+_ReSharper.*
+*.csproj.user
+*[Rr]e[Ss]harper.user
+_ReSharper.*/
+packages/*
+artifacts/*
+*.ogv
+>>>>>>> ravendb

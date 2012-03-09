@@ -1,0 +1,82 @@
+﻿@using Ideastrike.Nancy.Helpers
+@using Ideastrike.Nancy.Modules
+@using Ideastrike.Nancy.Models
+@using Ideastrike.Nancy.Models.ViewModels
+@using System.Linq
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+@{
+    Layout = "Views/Shared/Layout.cshtml";
+}
+
+@section HeadContent
+{
+    <link rel="stylesheet" href='@Url.Content("~/Resources/pie.css")' media="screen" />
+    <link rel="stylesheet" href='@Url.Content("~/Resources/pie-print.css")' media="print" />
+    <script type="text/javascript" src='@Url.Content("~/Resources/raphael.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/Resources/pie.js")'></script>
+    
+     <style media="screen">
+        .content 
+        {
+            width: 700px;
+            height: 700px;
+        }
+    </style>  
+   
+}
+@if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <div class="fill">
+        <div class="alert-message error">
+            <a class="close" href="#">&times;</a>
+            <p>
+                <strong>@Model.ErrorMessage</strong>
+            </p>
+        </div>
+    </div>
+}
+<h1>@Model.Title</h1>
+@MarkdownHelper.Markdown(Model.WelcomeMessage)
+<ul class="pills">
+    <li @if (Model.Selected == MetricSelectedTab.MostInnovations)
+        {@:class="active"
+        }
+        ><a href="/metric/">Most Innovations</a></li>
+    <li @if (Model.Selected == MetricSelectedTab.MostVotes)
+        {@:class="active"
+        }><a href="/metric/votes">Most Votes</a></li>
+</ul>
+
+<table>
+    <tbody>
+        @foreach (MetricViewModel m in Model.Metrics)
+        {
+            <tr>
+                <th scope="row">@m.Name</th>
+                <td>@MetricViewModel.GetPercentage(Model.IdeaCount, m.Count)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div id="holder"></div>
+
+@section PageScript
+{
+     <script type="text/javascript">
+         $(document).ready(function () {
+
+             var values = [];
+             var labels = [];
+
+             $("tr").each(function () {
+                 values.push(parseInt($("td", this).text(), 10));
+                 labels.push($("th", this).text());
+             });
+
+             $("table").hide();
+             Raphael("holder", 700, 700).pieChart(280, 280, 180, values, labels, "#fff");
+         });
+    </script>
+}

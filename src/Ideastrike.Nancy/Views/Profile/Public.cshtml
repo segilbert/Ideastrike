@@ -1,0 +1,44 @@
+﻿﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+@{
+    Layout = "Views/Shared/LayoutBasic.cshtml";
+}
+<h2>@Model.Title</h2>
+<div class="ideadesc gravatarslarge"><img src="@Model.AvatarUrl" /></div>
+<h3>@Model.UserName</h3>
+
+@if (Model.Ideas.Count > 0)
+{
+    <h4>Innovation and Ideas</h4>
+    <ol>
+    @foreach (var i in Model.Ideas)
+    {
+        <li><a href="/idea/@i.Id">@i.Title</a></li>
+    }
+    </ol>
+}
+@if (Model.Features.Count > 0)
+{
+    <div class="features">
+        <h4>Features</h4>
+        <ol>
+        @foreach (var i in Model.Features)
+        {
+            <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a>
+               <div class="row">
+                    <div class="span8 text">@i.Text</div>
+                </div>   
+            </li>
+        }
+        </ol>
+    </div>
+}
+@if (Model.Votes.Count > 0)
+{
+    <h4>Votes</h4>
+    <ol>
+    @foreach (var i in Model.Votes)
+    {
+        <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
+    }
+    </ol>
+}

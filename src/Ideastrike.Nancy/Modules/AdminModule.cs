@@ -16,7 +16,9 @@ namespace Ideastrike.Nancy.Modules
         private IUserRepository _users;
         private IIdeaRepository _ideas;
         private IActivityRepository _activities;
-        public AdminModule(IdeastrikeContext dbContext, ISettingsRepository settings, IUserRepository users, IIdeaRepository ideas, IActivityRepository activities)
+        public readonly IFeatureRepository _features;
+
+        public AdminModule(IdeastrikeContext dbContext, ISettingsRepository settings, IUserRepository users, IIdeaRepository ideas, IActivityRepository activities, IFeatureRepository features)
             : base("/admin")
         {
             this.RequiresAuthentication();
@@ -26,10 +28,11 @@ namespace Ideastrike.Nancy.Modules
             _users = users;
             _ideas = ideas;
             _activities = activities;
+            _features = features;
 
             Get["/"] = _ =>
             {
-                var m = Context.Model(string.Format("Admin - {0}", settings.Title));
+                var m = Context.Model(settings.Title);
                 m.Name = settings.Name;
                 m.WelcomeMessage = settings.WelcomeMessage;
                 m.HomePage = settings.HomePage;
@@ -39,7 +42,7 @@ namespace Ideastrike.Nancy.Modules
 
             Get["/users"] = _ =>
             {
-                var m = Context.Model(string.Format("Admin - {0}", settings.Title));
+                var m = Context.Model(settings.Title);
                 m.Name = settings.Name;
                 m.WelcomeMessage = settings.WelcomeMessage;
                 m.HomePage = settings.HomePage;
@@ -50,7 +53,7 @@ namespace Ideastrike.Nancy.Modules
 
             Get["/moderation"] = _ =>
             {
-                var m = Context.Model(string.Format("Admin - {0}", settings.Title));
+                var m = Context.Model(settings.Title);
                 m.Name = settings.Name;
                 m.WelcomeMessage = settings.WelcomeMessage;
                 m.HomePage = settings.HomePage;
@@ -60,7 +63,9 @@ namespace Ideastrike.Nancy.Modules
 
             Get["/settings"] = _ =>
             {
-                var m = Context.Model(string.Format("Admin - {0}", settings.Title));
+                var m = Context.Model(settings.Title);
+                // Strip out the "Admin - " as we do not want this to save
+                m.Title = settings.Title.Replace("Admin - ", string.Empty).Trim();
                 m.Name = settings.Name;
                 m.WelcomeMessage = settings.WelcomeMessage;
                 m.HomePage = settings.HomePage;
@@ -85,6 +90,34 @@ namespace Ideastrike.Nancy.Modules
             Get["/search"] = _ => "";
             Get["/forums"] = _ => "";
             Get["/forum/{forumId}"] = _ => "";
+
+            Get["/user/{id}"] = parameters =>
+                        {
+                            Guid userId = parameters.id;
+
+                            User user = _users.Get(userId);
+
+                            var i = _ideas.GetAll().Where(u => u.Author.Id == user.Id).ToList();
+                            var f = _features.GetAll().Where(u => u.User.Id == user.Id).ToList();
+                            var v = _users.GetVotes(user.Id).ToList();
+
+                            return View["Admin/User",
+                                new
+                                {
+                                    Title = "Profile",
+                                    Id = user.Id,
+                                    UserName = user.UserName,
+                                    AvatarUrl = user.AvatarUrl,
+                                    Email = user.Email,
+                                    Github = user.Github,
+                                    Ideas = i,
+                                    Features = f,
+                                    Votes = v,
+                                    Claims = user.Claims.ToList(),
+                                    IsLoggedIn = false 
+                                }];
+                        };
+
 
             Get["/uservoice"] = _ => View["Admin/Uservoice", Context.Model("Admin")];
             Post["/uservoice"] = _ =>
