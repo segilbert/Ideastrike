@@ -3,7 +3,7 @@
     margin-bottom: 20px;
 }
 
-.features ul, .comments ul {
+.features ul, .features ol, .comments ul, .features ol {
     margin: 0;
 }
 
@@ -11,7 +11,7 @@
     padding-left: 10px;
 }
 
-.features li, .comments li {
+.features li, .features ol,  .comments li, .features ol {
     list-style-type: none;
 }
 

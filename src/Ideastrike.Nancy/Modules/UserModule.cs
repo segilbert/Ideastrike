@@ -13,13 +13,13 @@ namespace Ideastrike.Nancy.Modules
         public readonly IUserRepository _users;
         public readonly IFeatureRepository _features;
         public readonly IIdeaRepository _ideas;
-
+        
         public UserModule(IUserRepository users, IIdeaRepository ideas, IFeatureRepository features)
         {
             _users = users;
             _ideas = ideas;
             _features = features;
-
+        
             Get["/profile"] = _ =>
                                   {
                                       this.RequiresAuthentication();

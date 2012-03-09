@@ -12,22 +12,25 @@
     <ol>
     @foreach (var i in Model.Ideas)
     {
-        <li class="span8 text"><a href="/idea/@i.Id">@i.Title</a></li>
+        <li><a href="/idea/@i.Id">@i.Title</a></li>
     }
     </ol>
 }
 @if (Model.Features.Count > 0)
 {
-    <h4>Features</h4>
-    <ol>
-    @foreach (var i in Model.Features)
-    {
-        <li class="span8 text"><a href="/idea/@i.Id">@i.Idea.Title</a>
-            </br>
-            @i.Text
-        </li>
-    }
-    </ol>
+    <div class="features">
+        <h4>Features</h4>
+        <ol>
+        @foreach (var i in Model.Features)
+        {
+            <li><a href="/idea/@i.Id">@i.Idea.Title</a>
+               <div class="row">
+                    <div class="span8 text">@i.Text</div>
+                </div>   
+            </li>
+        }
+        </ol>
+    </div>
 }
 @if (Model.Votes.Count > 0)
 {
@@ -35,7 +38,7 @@
     <ol>
     @foreach (var i in Model.Votes)
     {
-        <li class="span8 text"><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
+        <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
     }
     </ol>
 }
