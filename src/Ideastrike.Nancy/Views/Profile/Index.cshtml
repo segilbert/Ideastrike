@@ -27,7 +27,7 @@
     <ol>
     @foreach (var i in Model.Ideas)
     {
-        <li><a href="/idea/@i.Id">@i.Title</a></li>
+        <li class="span8 text"><a href="/idea/@i.Id">@i.Title</a></li>
     }
     </ol>
 }
@@ -37,7 +37,7 @@
     <ol>
     @foreach (var i in Model.Features)
     {
-        <li><a href="/idea/@i.Id">@i.Idea.Title</a>
+        <li class="span8 text"><a href="/idea/@i.Id">@i.Idea.Title</a>
             </br>
             @i.Text
         </li>
@@ -50,7 +50,7 @@
     <ol>
     @foreach (var i in Model.Votes)
     {
-        <li><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
+        <li class="span8 text"><a href="/idea/@i.Idea.Id">@i.Idea.Title</a></li>
     }
     </ol>
 }

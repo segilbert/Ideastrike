@@ -68,7 +68,7 @@ namespace Ideastrike.Nancy.Modules
                                                     Ideas = i,
                                                     Features = f,
                                                     Votes = v,
-                                                    IsLoggedIn = false
+                                                    IsLoggedIn = false 
                                                 }];
                                         };
 

@@ -245,7 +245,7 @@
     <Content Include="Resources\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Shared\LayoutBasic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
@@ -289,6 +289,8 @@
     <Content Include="Views\Support\Index.cshtml" />
     <Content Include="Views\Metric\Index.cshtml" />
     <Content Include="Views\Profile\Public.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Admin\User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Video\" />

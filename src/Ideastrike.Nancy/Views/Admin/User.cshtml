@@ -1,11 +1,26 @@
 ﻿﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
 @{
-    Layout = "Views/Shared/LayoutBasic.cshtml";
+    Layout = "Views/Shared/Layout.cshtml";
 }
 <h2>@Model.Title</h2>
 <div class="ideadesc gravatarslarge"><img src="@Model.AvatarUrl" /></div>
 <h3>@Model.UserName</h3>
+<a href="">Edit</a>
+</br>
+</br>
+@Model.Email<br/>
+@Model.Github<br/>
 
+@if (Model.Claims.Count > 0)
+{
+    <h4>Claims</h4>
+    <ol>
+    @foreach (var i in Model.Claims)
+    {
+        <li>@i</li>
+    }
+    </ol>
+}
 @if (Model.Ideas.Count > 0)
 {
     <h4>Innovation and Ideas</h4>
