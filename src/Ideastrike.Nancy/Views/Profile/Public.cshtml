@@ -5,22 +5,7 @@
 <h2>@Model.Title</h2>
 <div class="ideadesc gravatarslarge"><img src="@Model.AvatarUrl" /></div>
 <h3>@Model.UserName</h3>
-<a href="/profile/edit">Edit</a>
-</br>
-</br>
-@Model.Email<br/>
-@Model.Github<br/>
 
-@if (Model.Claims.Count > 0)
-{
-    <h4>Claims</h4>
-    <ol>
-    @foreach (var i in Model.Claims)
-    {
-        <li>@i.Name</li>
-    }
-    </ol>
-}
 @if (Model.Ideas.Count > 0)
 {
     <h4>Innovation and Ideas</h4>

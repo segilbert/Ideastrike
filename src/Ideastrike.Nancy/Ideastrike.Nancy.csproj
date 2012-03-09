@@ -288,6 +288,7 @@
     <Content Include="Views\Admin\Uservoice.cshtml" />
     <Content Include="Views\Support\Index.cshtml" />
     <Content Include="Views\Metric\Index.cshtml" />
+    <Content Include="Views\Profile\Public.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Video\" />
